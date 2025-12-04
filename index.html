@@ -338,27 +338,66 @@ window.addEventListener("scroll", () => {
 <footer>© 2025 Vidoura, All Rights Reserved</footer>
 
 <script>
-// Auto Scroll + Manual Touch Resume
-function autoScroll(row){
-  let pos = 0, dir = 1, stop = false;
-  function move(){
+function arcadeScroll(row){
+  let stop = false;
+  let speed = 0.45;
+  let resumeTimer;
+
+  function auto(){
     if(!stop){
-      pos += 0.6*dir;
-      if(pos >= row.scrollWidth - row.clientWidth) dir = -1;
-      if(pos <= 0) dir = 1;
-      row.scrollTo({ left: pos, behavior:"auto" });
+      row.scrollLeft += speed;
+      if(row.scrollLeft >= row.scrollWidth - row.clientWidth){
+        row.scrollLeft = 0; // resets smoothly, no bouncing
+      }
     }
-    requestAnimationFrame(move);
+    applyFocusEffects();
+    requestAnimationFrame(auto);
   }
-  move();
-  row.addEventListener("touchstart",()=>stop=true);
-  row.addEventListener("touchend",()=>setTimeout(()=>stop=false,1300));
-  row.addEventListener("mousedown",()=>stop=true);
-  row.addEventListener("mouseup",()=>setTimeout(()=>stop=false,1300));
+
+  function pause(){
+    stop = true;
+    clearTimeout(resumeTimer);
+  }
+
+  function resume(){
+    resumeTimer = setTimeout(()=> stop = false, 1600);
+  }
+
+  row.addEventListener("touchstart", pause);
+  row.addEventListener("touchend", resume);
+  row.addEventListener("mousedown", pause);
+  row.addEventListener("mouseup", resume);
+
+  row.addEventListener("scroll", ()=>{
+    pause();
+    resume();
+  });
+
+  function applyFocusEffects(){
+    const cards = row.querySelectorAll(".video-card, .review-card");
+    const center = row.scrollLeft + (row.clientWidth / 2);
+
+    cards.forEach(card=>{
+      const cardMiddle = card.offsetLeft + (card.clientWidth / 2);
+      const distance = Math.abs(center - cardMiddle);
+
+      if(distance < 130){
+        card.style.transform = "scale(1.08)";
+        card.style.filter = "blur(0px) brightness(1)";
+        card.style.opacity = "1";
+      } else {
+        card.style.transform = "scale(0.88)";
+        card.style.filter = "blur(6px) brightness(0.8)";
+        card.style.opacity = "0.55";
+      }
+    });
+  }
+
+  auto();
 }
 
-autoScroll(document.getElementById("videoSlider"));
-autoScroll(document.getElementById("reviewSlider"));
+arcadeScroll(document.getElementById("videoSlider"));
+arcadeScroll(document.getElementById("reviewSlider"));
 </script>
 
 </body>
