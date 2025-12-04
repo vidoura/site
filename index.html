@@ -232,7 +232,7 @@ footer{
   top:6px;
   z-index:9999;
 ">
-  <img src="logo.png" alt="logo" style="height:28px; width:auto;">
+  <img src="logo.png" alt="logo" style="height:80px; width:auto;">
 </header>
 
 <div class="wrap">
@@ -325,6 +325,15 @@ footer{
 
   </div>
 </section>
+
+<!-- HEADER SHRINK -->
+<script>
+let header = document.querySelector("header");
+window.addEventListener("scroll", () => {
+  header.style.transform = window.scrollY > 12 ? "scale(0.88)" : "scale(1)";
+  header.style.backdropFilter = window.scrollY > 12 ? "blur(10px)" : "blur(6px)";
+});
+</script>
 
 <footer>© 2025 Vidoura, All Rights Reserved</footer>
 
