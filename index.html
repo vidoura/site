@@ -341,19 +341,18 @@ window.addEventListener("scroll", () => {
 <footer>© 2025 Vidoura, All Rights Reserved</footer>
 
 <script>
-function arcadeScroll(row){
+function smoothAutoScroll(row){
   let stop = false;
-  let speed = 0.45;
   let resumeTimer;
+  let speed = 0.45;
 
   function auto(){
     if(!stop){
       row.scrollLeft += speed;
       if(row.scrollLeft >= row.scrollWidth - row.clientWidth){
-        row.scrollLeft = 0; // resets smoothly, no bouncing
+        row.scrollLeft = 0; // clean restart, no rewind glitch
       }
     }
-    applyFocusEffects();
     requestAnimationFrame(auto);
   }
 
@@ -363,45 +362,20 @@ function arcadeScroll(row){
   }
 
   function resume(){
-    resumeTimer = setTimeout(()=> stop = false, 1600);
+    resumeTimer = setTimeout(()=> stop = false, 1200);
   }
 
   row.addEventListener("touchstart", pause);
   row.addEventListener("touchend", resume);
   row.addEventListener("mousedown", pause);
   row.addEventListener("mouseup", resume);
-
-  row.addEventListener("scroll", ()=>{
-    pause();
-    resume();
-  });
-
-  function applyFocusEffects(){
-    const cards = row.querySelectorAll(".video-card, .review-card");
-    const center = row.scrollLeft + (row.clientWidth / 2);
-
-    cards.forEach(card=>{
-      const cardMiddle = card.offsetLeft + (card.clientWidth / 2);
-      const distance = Math.abs(center - cardMiddle);
-
-      if(distance < 130){
-        card.style.transform = "scale(1.08)";
-        card.style.filter = "blur(0px) brightness(1)";
-        card.style.opacity = "1";
-      } else {
-        card.style.transform = "scale(0.88)";
-        card.style.filter = "blur(6px) brightness(0.8)";
-        card.style.opacity = "0.55";
-      }
-    });
-  }
+  row.addEventListener("scroll", ()=> { pause(); resume(); });
 
   auto();
 }
 
-arcadeScroll(document.getElementById("videoSlider"));
-arcadeScroll(document.getElementById("reviewSlider"));
-</script>
-
+smoothAutoScroll(document.getElementById("videoSlider"));
+smoothAutoScroll(document.getElementById("reviewSlider"));
+  </script>
 </body>
 </html>
