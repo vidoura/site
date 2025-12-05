@@ -41,7 +41,11 @@ body{
 }
 
 h1{
-/* CLEAN MINIMAL BUTTONS */
+  font-size:54px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
 .hero-cta, .cta {
   background: #000000;
   color: #ffffff;
@@ -52,6 +56,17 @@ h1{
   font-weight: 600;
   border: none;
   transition: transform 0.2s ease;
+}
+
+.hero-cta:active, .cta:active {
+  transform: scale(0.94);
+}
+
+/* second (premium) card button */
+.card.premium .cta {
+  background: #ffffff;
+  color: #000000;
+  border: none;
 }
 
 .hero-cta:active, .cta:active {
@@ -273,6 +288,7 @@ footer{
   <video autoplay muted loop playsinline src="video4.mp4"></video>
   <div class="mute-btn">🔇</div>
   </div>
+  </div> <!-- CLOSE VIDEO SLIDER -->
 
 <!-- REVIEWS -->
 <h2 class="section-title">Client Results</h2>
