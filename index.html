@@ -55,11 +55,11 @@ h1{
 
 /* MAIN CTA (Get Started) — glass black */
 .hero-cta {
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   background: rgba(0,0,0,0.28);
   border: 1px solid rgba(255,255,255,0.25);
-  color: white;
+  color: black;
   font-weight: 600;
   padding: 14px 36px;
   border-radius: 14px;
@@ -140,7 +140,29 @@ video{
   object-fit:cover;
   border-radius:var(--radius);
 }
+.video-card {
+  position: relative;
+}
 
+.mute-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: white;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 99;
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.35);
+}
+.mute-btn:hover {
+  background: rgba(0,0,0,0.65);
+}
 /* REVIEWS */
 .section-title{
   font-size:34px;
@@ -262,11 +284,22 @@ footer{
 
 <!-- VIDEO SLIDER -->
 <div class="row" id="videoSlider">
-  <div class="video-card"><video autoplay muted loop playsinline src="video1.mp4"></video></div>
-  <div class="video-card"><video autoplay muted loop playsinline src="video2.mp4"></video></div>
-  <div class="video-card"><video autoplay muted loop playsinline src="video3.mp4"></video></div>
-  <div class="video-card"><video autoplay muted loop playsinline src="video4.mp4"></video></div>
-</div>
+  <div class="video-card">
+  <video autoplay muted loop playsinline src="video1.mp4"></video>
+  <div class="mute-btn">🔇</div>
+  </div>
+  <div class="video-card">
+  <video autoplay muted loop playsinline src="video2.mp4"></video>
+  <div class="mute-btn">🔇</div>
+  </div>
+  <div class="video-card">
+  <video autoplay muted loop playsinline src="video3.mp4"></video>
+  <div class="mute-btn">🔇</div>
+  </div>
+  <div class="video-card">
+  <video autoplay muted loop playsinline src="video4.mp4"></video>
+  <div class="mute-btn">🔇</div>
+  </div>
 
 <!-- REVIEWS -->
 <h2 class="section-title">Client Results</h2>
@@ -392,6 +425,17 @@ function smoothAutoScroll(row){
 
 smoothAutoScroll(document.getElementById("videoSlider"));
 smoothAutoScroll(document.getElementById("reviewSlider"));
+  </script>
+  <script>
+document.querySelectorAll(".video-card").forEach(card => {
+  const video = card.querySelector("video");
+  const btn = card.querySelector(".mute-btn");
+
+  btn.addEventListener("click", () => {
+    video.muted = !video.muted;
+    btn.textContent = video.muted ? "🔇" : "🔊";
+  });
+});
   </script>
 </body>
 </html>
