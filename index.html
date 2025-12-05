@@ -53,19 +53,42 @@ h1{
   margin:18px auto 34px;
 }
 
-.hero-cta{
-  background:black;
-  color:white;
-  padding:14px 36px;
-  border-radius:999px;
-  display:inline-block;
-  font-size:16px;
-  font-weight:600;
-  transition:var(--transition);
+/* PREMIUM GLASS CTA */
+.hero-cta, .cta {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: #000;
+  font-weight: 600;
+  padding: 14px 34px;
+  border-radius: 14px;
+  display: inline-block;
+  text-align: center;
+  transition: 0.28s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
-.hero-cta:hover{
-  box-shadow:var(--shadow-hover);
-  transform:translateY(-2px);
+
+/* Press + Hover */
+.hero-cta:active, .cta:active {
+  transform: scale(0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.hero-cta:hover, .cta:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Black premium mid-plan */
+.card.premium .cta {
+  background: rgba(0,0,0,0.78);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.35);
+}
+.card.premium .cta:hover {
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
 }
 
 /* AUTO + TOUCH SCROLL ROWS */
@@ -186,26 +209,6 @@ video{
   content:"• ";
   font-weight:900;
   margin-right:6px;
-}
-
-.cta{
-  margin-top:20px;
-  display:block;
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  background:black;
-  color:white;
-  font-weight:600;
-  text-align:center;
-  transition:var(--transition);
-}
-.card.premium .cta{
-  background:white;
-  color:black;
-}
-.cta:hover{
-  opacity:.8;
 }
 
 footer{
