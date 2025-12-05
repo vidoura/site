@@ -237,6 +237,28 @@ footer{
   font-weight:700;
   color:#000000; /* pure black */
 }
+  .card {
+  position: relative;
+}
+
+.pill {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #FF5A5F;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.card.premium .pill {
+  background: #FFD700;
+  color: #000;
+}
 </style>
 </head>
 <body>
@@ -324,42 +346,47 @@ footer{
 <!-- PRICING -->
 <section class="pricing">
   <h2 class="section-title">Pricing</h2>
-  <div class="grid">
+<div class="grid">
 
-    <div class="card">
-      <div class="price">$97</div>
-      <ul class="features">
-        <li>1 conversion ad video</li>
-        <li>Script + avatar + delivery</li>
-        <li>1 revision</li>
-        <li>48h delivery</li>
-      </ul>
-      <a class="cta">Order</a>
-    </div>
+  <div class="card">
+    <div class="pill">Starter</div>
+    <div class="price">$97</div>
+    <ul class="features">
+      <li>1 conversion ad video</li>
+      <li>Script + avatar + delivery</li>
+      <li>1 revision</li>
+      <li>48h delivery</li>
+    </ul>
+    <a class="cta">Order</a>
+  </div>
 
-    <div class="card premium">
-      <div class="price">$297</div>
-      <ul class="features">
-        <li>3 ad variants</li>
-        <li>3 avatars</li>
-        <li>Content calendar</li>
-        <li>Posting angles</li>
-        <li>Raw files included</li>
-      </ul>
-      <a class="cta">Order</a>
-    </div>
+  <div class="card premium">
+    <div class="pill">Launch (Best Value)</div>
+    <div class="price">$297</div>
+    <ul class="features">
+      <li>3 ad variants</li>
+      <li>3 avatars</li>
+      <li>Content calendar</li>
+      <li>Posting angles</li>
+      <li>Raw files included</li>
+    </ul>
+    <a class="cta">Order</a>
+  </div>
 
-    <div class="card">
-      <div class="price">$497</div>
-      <ul class="features">
-        <li>6 avatars</li>
-        <li>6 scripts</li>
-        <li>2 revisions each</li>
-        <li>Raw + edit files</li>
-        <li>Priority delivery</li>
-      </ul>
-      <a class="cta">Order</a>
-    </div>
+  <div class="card">
+    <div class="pill">Growth</div>
+    <div class="price">$497</div>
+    <ul class="features">
+      <li>6 avatars</li>
+      <li>6 scripts</li>
+      <li>2 revisions each</li>
+      <li>Raw + edit files</li>
+      <li>Priority delivery</li>
+    </ul>
+    <a class="cta">Order</a>
+  </div>
+
+</div>
 
   </div>
 </section>
@@ -376,7 +403,47 @@ window.addEventListener("scroll", () => {
 <footer>© 2025 Vidoura, All Rights Reserved</footer>
 
 <script>
-function smoothAutoScroll(row){
+function smoothAuto<div class="grid">
+
+  <div class="card">
+    <div class="pill">Starter</div>
+    <div class="price">$97</div>
+    <ul class="features">
+      <li>1 conversion ad video</li>
+      <li>Script + avatar + delivery</li>
+      <li>1 revision</li>
+      <li>48h delivery</li>
+    </ul>
+    <a class="cta">Order</a>
+  </div>
+
+  <div class="card premium">
+    <div class="pill">Launch (Best Value)</div>
+    <div class="price">$297</div>
+    <ul class="features">
+      <li>3 ad variants</li>
+      <li>3 avatars</li>
+      <li>Content calendar</li>
+      <li>Posting angles</li>
+      <li>Raw files included</li>
+    </ul>
+    <a class="cta">Order</a>
+  </div>
+
+  <div class="card">
+    <div class="pill">Growth</div>
+    <div class="price">$497</div>
+    <ul class="features">
+      <li>6 avatars</li>
+      <li>6 scripts</li>
+      <li>2 revisions each</li>
+      <li>Raw + edit files</li>
+      <li>Priority delivery</li>
+    </ul>
+    <a class="cta">Order</a>
+  </div>
+
+  </div>Scroll(row){
   let stop = false;
   let resumeTimer;
   let speed = 0.45;
