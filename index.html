@@ -56,31 +56,16 @@ h1{
   font-weight: 600;
   border: none;
   transition: transform 0.2s ease;
-   text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-cta:hover, .cta:hover {
+  opacity: 0.9;
 }
 
 .hero-cta:active, .cta:active {
-  transform: scale(0.94);
-}
-
-/* second (premium) card button */
-.card.premium .cta {
-  background: #ffffff;
-  color: #000000;
-  border: none;
-  text-decoration: none;
-}
-
-.hero-cta:active, .cta:active {
-  transform: scale(0.94);
-}
-
-/* second (premium) card button */
-.card.premium .cta {
-  background: #ffffff;
-  color: #000000;
-  border: none;
-  text-decoration: none;
+  transform: scale(0.96);
 }
 
 .subtitle{
@@ -89,7 +74,6 @@ h1{
   max-width:640px;
   margin:18px auto 34px;
 }
-
 
 /* AUTO + TOUCH SCROLL ROWS */
 .row{
@@ -114,15 +98,15 @@ h1{
   background:#eaeaea;
   transition:var(--transition);
 }
-  .video-card, .review-card {
+.video-card, .review-card {
   transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
-  }
+}
 .video-card.dim{
   filter:blur(10px) brightness(.7);
   transform:scale(.88);
   opacity:.6;
 }
-  .video-card {
+.video-card {
   position: relative;
 }
 .mute-btn {
@@ -156,7 +140,7 @@ video{
   font-size:34px;
   font-weight:700;
   text-align:center;
-  margin:80px 0 20px;
+  margin:60px 0 20px;
 }
 
 .review-card{
@@ -172,7 +156,7 @@ video{
 }
 .stars{
   font-size:18px;
-  color:#3BB273; /* Green stars */
+  color:#3BB273;
   margin-bottom:8px;
 }
 .name{
@@ -186,82 +170,105 @@ video{
 
 /* PRICING */
 .pricing{
-  padding:100px 20px;
+  padding:60px 20px 80px;
   text-align:center;
 }
-.grid{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  max-width:1000px;
-  margin:auto;
-}
-.card{
-  background:white;
-  padding:32px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  text-align:left;
-  border:1px solid rgba(0,0,0,0.08);
-  transition:var(--transition);
-}
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-hover);
-}
-.card.premium{
-  background:black;
-  color:white;
+
+.offer-container {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #000000;
+  color: #ffffff;
+  padding: 64px 48px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-hover);
+  text-align: center;
 }
 
-.price{
-  font-size:42px;
-  font-weight:800;
+.offer-container .price {
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 8px;
 }
-.features{
-  margin-top:18px;
-  list-style:none;
+
+.offer-container .spots {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
 }
-.features li{
-  margin-bottom:10px;
-  font-size:15px;
-  line-height:1.4;
-  padding-left:8px;
+
+.offer-container .divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 48px 0;
 }
-.features li::before{
-  content:"• ";
-  font-weight:900;
-  margin-right:6px;
+
+.offer-container h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offer-container .feature-list {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.offer-container .feature-list li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: rgba(255,255,255,0.95);
+  padding-left: 0;
+}
+
+.offer-container .feature-list li strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.offer-container .cta {
+  background: #ffffff;
+  color: #000000;
+  padding: 18px 56px;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 24px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.offer-container .cta:hover {
+  opacity: 0.95;
+}
+
+.offer-container .cta:active {
+  transform: scale(0.97);
+}
+
+.offer-container .note {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 32px;
+  line-height: 1.6;
 }
 
 footer{
-  padding:50px 20px;
+  padding:60px 20px 50px;
   text-align:center;
   font-size:15px;
   font-weight:700;
-  color:#000000; /* pure black */
-}
-  .card {
-  position: relative;
-}
-
-.pill {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: #000000;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 999px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.card.premium .pill {
-  background: #ffffff;
-  color: #000;
+  color:#000000;
 }
 </style>
 </head>
@@ -296,7 +303,6 @@ footer{
 <!-- VIDEO SLIDER -->
 <div class="row" id="videoSlider">
   <div class="video-card">
-    
   <video autoplay muted loop playsinline src="video1.mp4"></video>
   <div class="mute-btn">🔇</div>
   </div>
@@ -312,7 +318,7 @@ footer{
   <video autoplay muted loop playsinline src="video4.mp4"></video>
   <div class="mute-btn">🔇</div>
   </div>
-  </div> <!-- CLOSE VIDEO SLIDER -->
+</div>
 
 <!-- REVIEWS -->
 <h2 class="section-title">Client Results</h2>
@@ -348,52 +354,34 @@ footer{
   </div>
 </div>
 
-<!-- PRICING -->
+<!-- OFFER -->
 <section class="pricing">
-  <h2 class="section-title">Pricing</h2>
-<div class="grid">
-
-  <div class="card">
-    <div class="pill">Starter</div>
-    <div class="price">$37</div>
-    <ul class="features">
-      <li>1 conversion ad video</li>
-      <li>Script + avatar + delivery</li>
-      <li>1 revision</li>
-      <li>48h delivery</li>
-    </ul>
-    <a class="cta" href="https://t.me/VidouraAi?start=Order" target="_blank">Order</a>
-  </div>
-
-  <div class="card premium">
-    <div class="pill">Launch (Best Value)</div>
-    <div class="price">$97</div>
-    <ul class="features">
-      <li>3 ad variants</li>
-      <li>3 avatars</li>
-      <li>Content calendar</li>
-      <li>Posting angles</li>
-      <li>Raw files included</li>
-    </ul>
-    <a class="cta" href="https://t.me/VidouraAi?start=Order" target="_blank">Order</a>
-  </div>
-
-  <div class="card">
-    <div class="pill">Growth</div>
+  <h2 class="section-title">Limited Offer</h2>
+  
+  <div class="offer-container">
     <div class="price">$197</div>
-    <ul class="features">
-      <li>6 avatars</li>
-      <li>6 scripts</li>
-      <li>2 revisions each</li>
-      <li>Raw + edit files</li>
-      <li>Priority delivery</li>
+    <div class="spots">Limited to 10 spots</div>
+
+    <div class="divider"></div>
+
+    <h3>What You Get</h3>
+    <ul class="feature-list">
+      <li><strong>Strategy Audit:</strong> We review your app and identify the best hooks and angles</li>
+      <li><strong>3 AI UGC Videos:</strong> 20-40 seconds each, scroll stopping content</li>
+      <li><strong>Platform Ready Formats:</strong> Optimized for TikTok, Instagram, YouTube Shorts</li>
+      <li><strong>48Hour Delivery:</strong> Fast turnaround, no waiting weeks</li>
+      <li><strong>1 Revision Per Video:</strong> We refine until it's right</li>
+      <li><strong>Raw + Edited Files:</strong> Full ownership, use them however you want</li>
     </ul>
-    <a class="cta" href="https://t.me/VidouraAi?start=Order" target="_blank">Order</a>
+
+    <div class="divider"></div>
+
+    <h3>Who This Is For</h3>
+    <p class="note">Apps, SaaS tools, and digital products that need scroll stopping organic content to drive awareness and sign-ups.</p>
+
+    <a class="cta" href="https://t.me/VidouraAi?start=Order" target="_blank">Claim Your Spot</a>
   </div>
 
-</div>
-
-  </div>
 </section>
 
 <!-- HEADER SHRINK -->
@@ -408,12 +396,6 @@ window.addEventListener("scroll", () => {
 <footer>© 2025 Vidoura, All Rights Reserved</footer>
 
 <script>
-
-
-smoothAutoScroll(document.getElementById("videoSlider"));
-smoothAutoScroll(document.getElementById("reviewSlider"));
-  </script>
-  <script>
 document.querySelectorAll(".video-card").forEach(card => {
   const video = card.querySelector("video");
   const btn = card.querySelector(".mute-btn");
@@ -423,6 +405,6 @@ document.querySelectorAll(".video-card").forEach(card => {
     btn.textContent = video.muted ? "🔇" : "🔊";
   });
 });
-  </script>
+</script>
 </body>
 </html>
